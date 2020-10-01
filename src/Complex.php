@@ -9,7 +9,7 @@ use DivisionByZeroError;
  * Class Comlex
  * @package alxdeex\Math
  */
-class Comlex
+class Complex
 {
     /**
      * @var float
@@ -60,10 +60,10 @@ class Comlex
 
     /**
      * Сложение
-     * @param Comlex $b
-     * @return Comlex
+     * @param Complex $b
+     * @return Complex
      */
-    public function add(Comlex $b): Comlex
+    public function add(Complex $b): Complex
     {
         $new_real = $this->real + $b->getReal();
         $new_imaginary = $this->imaginary + $b->getImaginary();
@@ -73,10 +73,10 @@ class Comlex
 
     /**
      * Вычитание
-     * @param Comlex $b
-     * @return Comlex
+     * @param Complex $b
+     * @return Complex
      */
-    public function subtract(Comlex $b): Comlex
+    public function subtract(Complex $b): Complex
     {
         $new_real = $this->real - $b->getReal();
         $new_imaginary = $this->imaginary - $b->getImaginary();
@@ -86,10 +86,10 @@ class Comlex
 
     /**
      * Умножение
-     * @param Comlex $b
-     * @return Comlex
+     * @param Complex $b
+     * @return Complex
      */
-    public function multiply(Comlex $b): Comlex
+    public function multiply(Complex $b): Complex
     {
         $new_real = $this->real * $b->getReal() - $this->imaginary * $b->imaginary;
         $new_imaginary = $this->imaginary * $b->getReal() + $this->real * $b->getImaginary();
@@ -99,10 +99,10 @@ class Comlex
 
     /**
      * Деление
-     * @param Comlex $b
-     * @return Comlex
+     * @param Complex $b
+     * @return Complex
      */
-    public function divide(Comlex $b): Comlex
+    public function divide(Complex $b): Complex
     {
         if ($b->getReal() == 0 && $b->getImaginary() == 0) {
             throw new DivisionByZeroError('Division by zero');

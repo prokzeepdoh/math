@@ -18,10 +18,10 @@ class ComlexTest extends TestCase
      */
     public function testAdd()
     {
-        $a  = new Comlex(5, -6);
-        $b  = new Comlex(-3, 2);
+        $a  = new Complex(5, -6);
+        $b  = new Complex(-3, 2);
         $addends = $a->add($b);
-        $this->assertEquals(new Comlex(2, -4), $addends);
+        $this->assertEquals(new Complex(2, -4), $addends);
     }
 
     /**
@@ -29,10 +29,10 @@ class ComlexTest extends TestCase
      */
     public function testSubtract()
     {
-        $a  = new Comlex(5, -6);
-        $b  = new Comlex(-3, 2);
+        $a  = new Complex(5, -6);
+        $b  = new Complex(-3, 2);
         $difference = $a->subtract($b);
-        $this->assertEquals(new Comlex(8, -8), $difference);
+        $this->assertEquals(new Complex(8, -8), $difference);
     }
 
     /**
@@ -40,10 +40,10 @@ class ComlexTest extends TestCase
      */
     public function testMultiply()
     {
-        $a  = new Comlex(2, 3);
-        $b  = new Comlex(-1, 1);
+        $a  = new Complex(2, 3);
+        $b  = new Complex(-1, 1);
         $product = $a->multiply($b);
-        $this->assertEquals(new Comlex(-5, -1), $product);
+        $this->assertEquals(new Complex(-5, -1), $product);
     }
 
     /**
@@ -51,10 +51,10 @@ class ComlexTest extends TestCase
      */
     public function testDivide()
     {
-        $a  = new Comlex(-2, 1);
-        $b  = new Comlex(1, -1);
+        $a  = new Complex(-2, 1);
+        $b  = new Complex(1, -1);
         $quotient = $a->divide($b);
-        $this->assertEquals(new Comlex(-1.5, -0.5), $quotient);
+        $this->assertEquals(new Complex(-1.5, -0.5), $quotient);
     }
 
     /**
@@ -62,10 +62,10 @@ class ComlexTest extends TestCase
      */
     public function testToString()
     {
-        $this->assertEquals('1 + 2i', (string)new Comlex(1, 2));
-        $this->assertEquals('2i', (string)new Comlex(0, 2));
-        $this->assertEquals('1', (string)new Comlex(1, 0));
-        $this->assertEquals('0', (string)new Comlex(0, 0));
+        $this->assertEquals('1 + 2i', (string)new Complex(1, 2));
+        $this->assertEquals('2i', (string)new Complex(0, 2));
+        $this->assertEquals('1', (string)new Complex(1, 0));
+        $this->assertEquals('0', (string)new Complex(0, 0));
     }
 
     /**
@@ -73,8 +73,8 @@ class ComlexTest extends TestCase
      */
     public function testDivideZero()
     {
-        $a = new Comlex(123, 123);
-        $b = new Comlex(0, 0);
+        $a = new Complex(123, 123);
+        $b = new Complex(0, 0);
         $this->expectException(DivisionByZeroError::class);
         $a->divide($b);
     }
