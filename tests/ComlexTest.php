@@ -31,6 +31,11 @@ class ComlexTest extends TestCase
                 Complex::algebraic(-3, 2),
                 Complex::algebraic(2, -4),
             ],
+            [
+                Complex::trigonometric(sqrt(2), pi() / 4),
+                Complex::trigonometric(sqrt(2), 3 * pi() / 4),
+                Complex::trigonometric(2, pi() / 2),
+            ],
         ];
     }
 
@@ -51,6 +56,11 @@ class ComlexTest extends TestCase
                 Complex::algebraic(5, -6),
                 Complex::algebraic(-3, 2),
                 Complex::algebraic(8, -8),
+            ],
+            [
+                Complex::trigonometric(3 * sqrt(2), pi() / 4),
+                Complex::trigonometric(2 * sqrt(2), pi() / 4),
+                Complex::trigonometric(sqrt(2), pi() / 4),
             ],
         ];
     }
@@ -73,6 +83,11 @@ class ComlexTest extends TestCase
                 Complex::algebraic(-1, 1),
                 Complex::algebraic(-5, -1),
             ],
+            [
+                Complex::trigonometric(1, pi() / 2),
+                Complex::trigonometric(2, pi() / 4),
+                Complex::trigonometric(2, 3 * pi() / 4),
+            ],
         ];
     }
 
@@ -94,6 +109,11 @@ class ComlexTest extends TestCase
                 Complex::algebraic(1, -1),
                 Complex::algebraic(-1.5, -0.5),
             ],
+            [
+                Complex::trigonometric(2, 3 * pi() / 4),
+                Complex::trigonometric(1, pi() / 4),
+                Complex::trigonometric(2, pi() / 2),
+            ],
         ];
     }
 
@@ -113,6 +133,8 @@ class ComlexTest extends TestCase
             [Complex::algebraic(0, 2), '2i'],
             [Complex::algebraic(1, 0), '1'],
             [Complex::algebraic(0, 0), '0'],
+            [Complex::trigonometric(1, 3 * pi() / 4), 'cos(3PI/4) + i*sin(3PI/4)'],
+            [Complex::trigonometric(2, pi() / 2), '2(cos(PI/2) + i*sin(PI/2))'],
         ];
     }
 
