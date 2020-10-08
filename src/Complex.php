@@ -44,6 +44,18 @@ abstract class Complex
     }
 
     /**
+     * @param float $module
+     * @param float $fi
+     * @return Complex
+     */
+    public static function trigonometric(float $module, float $fi): Complex
+    {
+        $real = $module * cos($fi);
+        $imaginary = $module * sin($fi);
+        return new TrigonometryComplex($real, $imaginary);
+    }
+
+    /**
      * @return string
      */
     abstract public function __toString(): string;
