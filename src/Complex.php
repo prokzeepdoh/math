@@ -9,20 +9,21 @@ use DivisionByZeroError;
  * Class Comlex
  * @package alxdeex\Math
  */
-class Complex
+abstract class Complex
 {
     /**
      * @var float
      */
-    private float $real;
+    protected float $real;
 
     /**
      * @var float
      */
-    private float $imaginary;
+    protected float $imaginary;
+
 
     /**
-     * Comlex constructor.
+     * Complex constructor.
      * @param float $real
      * @param float $imaginary
      */
@@ -33,30 +34,19 @@ class Complex
     }
 
     /**
+     * @param float $real
+     * @param float $imaginary
+     * @return Complex
+     */
+    public static function algebraic(float $real, float $imaginary): Complex
+    {
+        return new AlgebraicComplex($real, $imaginary);
+    }
+
+    /**
      * @return string
      */
-    public function __toString(): string
-    {
-        if ($this->real) {
-            $result = (string)$this->real;
-        } else {
-            $result = '';
-        }
-
-        if ($this->imaginary) {
-            if ($this->real) {
-                $result .= ($this->imaginary > 0 ? ' + ' : ' - ');
-            }
-            $result .= abs($this->imaginary) . 'i';
-        }
-
-        if (!$this->real && !$this->imaginary) {
-            $result = '0';
-        }
-
-        return $result;
-
-    }
+    abstract public function __toString(): string;
 
     /**
      * Сложение
@@ -68,7 +58,7 @@ class Complex
         $new_real = $this->real + $b->getReal();
         $new_imaginary = $this->imaginary + $b->getImaginary();
 
-        return new self($new_real, $new_imaginary);
+        return new static($new_real, $new_imaginary);
     }
 
     /**
@@ -81,7 +71,7 @@ class Complex
         $new_real = $this->real - $b->getReal();
         $new_imaginary = $this->imaginary - $b->getImaginary();
 
-        return new self($new_real, $new_imaginary);
+        return new static($new_real, $new_imaginary);
     }
 
     /**
@@ -94,7 +84,7 @@ class Complex
         $new_real = $this->real * $b->getReal() - $this->imaginary * $b->imaginary;
         $new_imaginary = $this->imaginary * $b->getReal() + $this->real * $b->getImaginary();
 
-        return new self($new_real, $new_imaginary);
+        return new static($new_real, $new_imaginary);
     }
 
     /**
@@ -113,7 +103,7 @@ class Complex
         $new_real = ($this->real * $b->getReal() + $this->imaginary * $b->getImaginary()) / $bottom;
         $new_imaginary = ($this->imaginary * $b->getReal() - $this->real * $b->getImaginary()) / $bottom;
 
-        return new self($new_real, $new_imaginary);
+        return new static($new_real, $new_imaginary);
     }
 
     /**
