@@ -28,4 +28,3 @@ echo "$a; $b; $c";
  ```
  $ docker run --rm --tty --volume $PWD:/math php /math/vendor/bin/phpunit /math/tests
 ```
-
