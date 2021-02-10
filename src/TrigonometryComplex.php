@@ -1,6 +1,5 @@
 <?php
 
-
 namespace alxdeex\Math;
 
 use Phospr\Fraction;
