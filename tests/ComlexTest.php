@@ -8,16 +8,15 @@ use PHPUnit\Framework\TestCase;
 /**
  * Тесты для комплексных чисел
  * Class ComlexTest
- * @package alxdeex\Math
- */
+                                 */
 
 class ComlexTest extends TestCase
 {
 
     /**
-     * Тест сложения
-     * @dataProvider additionProvider
-     */
+           * Тест сложения
+                              */
+    
     public function testAdd($a, $b, $expect)
     {
         $addends = $a->add($b);
@@ -41,9 +40,9 @@ class ComlexTest extends TestCase
     }
 
     /**
-     * Тест вычитания
-     * @dataProvider subtractionProvider
-     */
+           * Тест вычитания
+                                 */
+    
     public function testSubtract($a, $b, $expected)
     {
         $difference = $a->subtract($b);
@@ -68,8 +67,7 @@ class ComlexTest extends TestCase
 
     /**
      * Тест умножения
-     * @dataProvider multiplierProvider
-     */
+                            */
     public function testMultiply($a, $b, $expected)
     {
         $product = $a->multiply($b);
@@ -94,8 +92,8 @@ class ComlexTest extends TestCase
 
     /**
      * Тест деления
-     * @dataProvider divisionProvider
-     */
+                             */
+    
     public function testDivide($a, $b, $expected)
     {
         $quotient = $a->divide($b);
@@ -120,8 +118,8 @@ class ComlexTest extends TestCase
 
     /**
      * Тест преобразования к строке
-     * @dataProvider stringifyProvider
-     */
+                                         */
+    
     public function testToString($a, $expected)
     {
         $this->assertEquals($expected, (string)$a);
@@ -141,7 +139,8 @@ class ComlexTest extends TestCase
 
     /**
      * Тест деления на нуль
-     */
+                             */
+    
     public function testDivideZero()
     {
         $a = Complex::algebraic(123, 123);
